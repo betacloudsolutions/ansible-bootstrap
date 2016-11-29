@@ -11,7 +11,7 @@ LAST_TAG=$(git describe --abbrev=0 --tags)
 if [[ $(git diff master..$LAST_TAG) ]]; then
     git tag $TAG
     git push --tags
-    tar cvzf $ARCHIVE README.md defaults files handlers meta tasks
+    tar cvzf $ARCHIVE README.md defaults files handlers meta tasks templates
     mkdir $NAME
     tar xvzf $ARCHIVE -C $NAME
     tar cvzf $ARCHIVE $NAME
