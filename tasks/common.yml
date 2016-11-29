@@ -1,0 +1,76 @@
+---
+- name: Copy sources.list file
+  copy:
+    src: sources.list
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Update package cache
+  package:
+    update_cache: yes
+  become: true
+
+- name: Upgrade all packages
+  package:
+    upgrade: dist
+  become: true
+
+- name: Restart rsyslog service
+  service:
+    name: rsyslog
+    state: restarted
+  become: true
+
+- name: Set ssh authorized keys
+  authorized_key:
+    key: "{{ item }}"
+    user: root
+  with_items: "{{ bc_authorized_keys }}"
+  become: true
+
+- name: Remove snakeoil certificate
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/ssl/private/ssl-cert-snakeoil.key
+    - /etc/ssl/certs/ssl-cert-snakeoil.pem
+  become: true
+
+- name: Set timezone
+  command: "timedatectl set-timezone {{ bc_timezone }}"
+  become: true
+
+- name: Remove no longer required packages
+  command: apt-get -y autoremove
+  become: true
+
+- name: Disable ipv6 support
+  sysctl:
+    name: "{{ item }}"
+    value: 1
+    state: present
+  with_items:
+    - net.ipv6.conf.all.disable_ipv6
+    - net.ipv6.conf.default.disable_ipv6
+    - net.ipv6.conf.lo.disable_ipv6
+  when: bc_disable_ipv6|bool
+  become: true
+
+- name: Generate /etc/hosts file
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+  become: true
+  tags: hosts
+
+- name: Stop/Disable iscsid service
+  service:
+    name: iscsid
+    state: stopped
+    enabled: no
+  ignore_errors: true
+  become: true

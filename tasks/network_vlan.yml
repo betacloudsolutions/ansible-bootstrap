@@ -1,0 +1,13 @@
+---
+- name: Enable 8021q kernel module
+  lineinfile:
+    line: 8021q
+    state: present
+    dest: /etc/modules
+  become: true
+
+- name: Load 8021q kernel module
+  modprobe:
+    name: 8021q
+    state: present
+  become: true

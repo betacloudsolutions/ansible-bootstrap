@@ -1,0 +1,19 @@
+---
+- name: Install ethtool package
+  package:
+    name: ethtool
+    state: present
+  become: true
+
+- name: Enable bonding kernel module
+  lineinfile:
+    line: bonding
+    state: present
+    dest: /etc/modules
+  become: true
+
+- name: Load bonding kernel module
+  modprobe:
+    name: bonding
+    state: present
+  become: true

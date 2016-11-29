@@ -1,0 +1,24 @@
+---
+- include: resolvconf.yml
+  tags: resolvconf
+
+- include: common.yml
+  tags: common
+
+- include: operator.yml
+  when: bc_use_operator_user|bool
+  tags: operator
+
+- include: network_bonding.yml
+  when: bc_bonding_support|bool
+  tags: networking
+
+- include: network_vlan.yml
+  when: bc_vlan_support|bool
+  tags: networking
+
+- include: ceph.yml
+  when:
+    - bc_ceph_support|bool
+    - "'storage' in group_names"
+  tags: ceph

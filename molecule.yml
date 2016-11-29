@@ -1,0 +1,26 @@
+---
+driver:
+  name: openstack
+openstack:
+  keyfile: ~/.ssh/id_rsa
+  instances:
+    - name: molecule-betacloud-bootstrap
+      image: 'Ubuntu 16.04'
+      flavor: eg-7
+      sshuser: ubuntu
+      ansible_groups:
+        - ansiblegroup
+      security_groups:
+        - ssh
+ansible:
+  playbook: playbook.yml
+  host_vars:
+    molecule-betacloud-bootstrap:
+    - bc_internal_address: 10.100.100.100
+verifier:
+  name: testinfra
+molecule:
+  ignore_paths:
+    - .git
+    - .molecule
+    - .tox

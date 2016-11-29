@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export OS_AUTH_URL=https://auth.cloud.ovh.net/v2.0
+export OS_PROJECT_NAME=9003584042686816
+export OS_TENANT_NAME=$OS_PROJECT_NAME
+export OS_USERNAME=7GNm5Dhdv2Hd
+export OS_PASSWORD=7j2H5s5cN55aVKFqbh5g2turWHs3UzCq
+export OS_REGION_NAME=GRA1

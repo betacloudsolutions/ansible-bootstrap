@@ -1,0 +1,34 @@
+---
+bc_authorized_keys: []
+
+# mkpasswd --method=sha-512
+bc_operator_password: ""
+bc_operator_user: "dragon"
+bc_timezone: "Europe/Berlin"
+bc_upgrade_package: yes
+bc_use_operator_user: no
+
+# networking
+
+bc_bonding_support: no
+bc_disable_ipv6: yes
+bc_vlan_support: no
+
+# kolla
+
+bc_kolla_private_key: ""
+bc_kolla_public_key: ""
+
+# ceph
+
+bc_ceph_support: no
+bc_ceph_journal_devices: []
+bc_ceph_bootstrap_confirmation: "i-do-not-know-what-i-am-doing"
+bc_ceph_osd_devices: []
+
+# resolvconf
+
+bc_resolvconf_nameserver:
+  - 8.8.8.8
+  - 8.8.4.4
+bc_resolvconf_search: betacloud.io

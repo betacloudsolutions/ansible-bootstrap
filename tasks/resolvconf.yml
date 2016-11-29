@@ -1,0 +1,14 @@
+---
+- name: Ensure resolvconf is installed
+  package:
+    name: resolvconf
+    state: present
+  become: true
+
+- name: Start/Enable resolvconf service
+  service:
+    name: resolvconf
+    state: started
+    enabled: yes
+  ignore_errors: true
+  become: true

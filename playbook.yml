@@ -1,0 +1,28 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Install python version 2
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    register: result
+    changed_when: result.rc != 0
+    become: true
+
+- hosts: all
+
+  vars:
+    bc_bonding_support: yes
+    bc_vlan_support: yes
+    bc_use_operator_user: yes
+
+  pre_tasks:
+
+  - name: Add operator user
+    user:
+      name: "{{ bc_operator_user }}"
+      uid: 2000
+      shell: /bin/bash
+    become: true
+
+  roles:
+  - role: ansible-betacloud.bootstrap
