@@ -2,7 +2,7 @@
 driver:
   name: openstack
 openstack:
-  keyfile: ~/.ssh/id_rsa
+  keyfile: /ssh/id_rsa
   instances:
     - name: molecule-betacloud-bootstrap
       image: 'Ubuntu 16.04'
@@ -24,3 +24,10 @@ molecule:
     - .git
     - .molecule
     - .tox
+  test:
+    sequence:
+      - destroy
+      - create
+      - converge
+      - verify
+      - destroy
