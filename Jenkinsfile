@@ -20,6 +20,10 @@ node {
     stage('Publish') {
       sh 'scripts/push-latest.sh'
     }
+
+    stage('Clean up') {
+      step([$class: 'WsCleanup'])
+    }
   }
 
   catch(err) {
