@@ -58,11 +58,3 @@
     dest: /etc/hosts
   become: true
   tags: hosts
-
-- name: Stop/Disable iscsid service
-  service:
-    name: iscsid
-    state: stopped
-    enabled: no
-  ignore_errors: true
-  become: true
