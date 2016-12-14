@@ -40,11 +40,6 @@
     - /etc/ssl/certs/ssl-cert-snakeoil.pem
   become: true
 
-- name: Set timezone
-  timezone:
-    name: " {{ bc_timezone }}"
-  become: true
-
 - name: Remove no longer required packages
   apt:
     autoremove: yes
