@@ -40,11 +40,6 @@
     - /etc/ssl/certs/ssl-cert-snakeoil.pem
   become: true
 
-- name: Remove no longer required packages
-  apt:
-    autoremove: yes
-  become: true
-
 - name: Disable ipv6 support
   sysctl:
     name: "{{ item }}"
