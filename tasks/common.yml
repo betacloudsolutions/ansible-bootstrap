@@ -41,7 +41,8 @@
   become: true
 
 - name: Set timezone
-  command: "timedatectl set-timezone {{ bc_timezone }}"
+  timezone:
+    name: " {{ bc_timezone }}"
   become: true
 
 - name: Remove no longer required packages
