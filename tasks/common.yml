@@ -46,7 +46,8 @@
   become: true
 
 - name: Remove no longer required packages
-  command: apt-get -y autoremove
+  apt:
+    autoremove: yes
   become: true
 
 - name: Disable ipv6 support
