@@ -18,7 +18,7 @@ node {
     }
 
     stage('Publish') {
-      sh 'scripts/push-latest.sh'
+      sh 'scripts/push.sh'
     }
 
     stage('Clean up') {

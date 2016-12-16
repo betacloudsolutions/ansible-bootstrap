@@ -1,23 +1,20 @@
 #!/bin/sh
 
-USERNAME=betacloud-ansible
-PASSWORD=hie0Wof2the0uGeu
+# Available environment variables:
+#
+# NEXUS_ARTIFACT_REPOSITORY
+# NEXUS_ARTIFACT_NAME
+# NEXUS_ARTIFACT_TAG
+# NEXUS_USERNAME
+# NEXUS_PASSWORD
+# NEXUS_SERVER
 
-NAME=betacloud.bootstrap
-TAG=$(date +%Y%m%d)
-ARCHIVE=$NAME-$TAG.tar.gz
+ARCHIVE=$NEXUS_ARTIFACT_NAME-$NEXUS_ARTIFACT_TAG.tar.gz
 
-LAST_TAG=$(git describe --abbrev=0 --tags)
-if [[ $(git diff master..$LAST_TAG) ]]; then
-    git tag $TAG
-    git push --tags
-    tar cvzf $ARCHIVE README.md defaults files handlers meta tasks templates
-    mkdir $NAME
-    tar xvzf $ARCHIVE -C $NAME
-    tar cvzf $ARCHIVE $NAME
-    curl -v --user "$USERNAME:$PASSWORD" --upload-file $ARCHIVE https://nexus.betacloud.io/repository/ansible/$ARCHIVE
-    rm -f $ARCHIVE
-    rm -rf $NAME
-else
-    echo "no change since latest tag $LAST_TAG"
-fi
+tar cvzf $ARCHIVE README.md defaults files handlers meta tasks templates
+mkdir $NEXUS_ARTIFACT_NAME
+tar xvzf $ARCHIVE -C $NEXUS_ARTIFACT_NAME
+tar cvzf $ARCHIVE $NEXUS_ARTIFACT_NAME
+curl -v --user "$NEXUS_USERNAME:$NEXUS_PASSWORD" --upload-file $ARCHIVE https://$NEXUS_SERVER/repository/$NEXUS_ARTIFACT_REPOSITORY/$ARCHIVE
+rm -f $ARCHIVE
+rm -rf $NEXUS_ARTIFACT_NAME
