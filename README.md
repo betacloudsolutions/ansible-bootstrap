@@ -22,10 +22,3 @@ Example Playbook
   - role: betacloud.docker
 
 ```
-
-Changelog
----------
-
-**TODO**
-
-**20161129** (first release)
