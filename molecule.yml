@@ -26,7 +26,6 @@ molecule:
     - .tox
   test:
     sequence:
-      - destroy
       - create
       - converge
       - verify
