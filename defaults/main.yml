@@ -19,13 +19,6 @@ bc_vlan_support: no
 bc_kolla_private_key: ""
 bc_kolla_public_key: ""
 
-# ceph
-
-bc_ceph_support: no
-bc_ceph_journal_devices: []
-bc_ceph_bootstrap_confirmation: "i-do-not-know-what-i-am-doing"
-bc_ceph_osd_devices: []
-
 # resolvconf
 
 bc_resolvconf_nameserver:
