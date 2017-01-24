@@ -6,11 +6,12 @@ openstack:
   instances:
     - name: molecule-betacloud-bootstrap
       image: 'Ubuntu 16.04'
-      flavor: eg-7
+      flavor: vps-ssd-1
       sshuser: ubuntu
       ssh_timeout: 120
       ansible_groups:
-        - ansiblegroup
+        - ubuntu
+        - elasticsearch
       security_groups:
         - ssh
 ansible:
