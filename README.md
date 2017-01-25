@@ -1,6 +1,6 @@
-# Ansible betacloud.docker
+# Ansible betacloud.bootstrap
 
-This is an Ansible role that installs Docker on Ubuntu servers.
+This is an Ansible role that bootstraps an Ubuntu servers.
 
 Requirements
 ------------
@@ -19,6 +19,5 @@ Example Playbook
 - hosts: all
 
   roles:
-  - role: betacloud.docker
-
+  - role: betacloud.bootstrap
 ```
