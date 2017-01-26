@@ -46,14 +46,5 @@
 - name: Set ssh authorized key (kolla)
   authorized_key:
     user: "{{ bc_operator_user }}"
-    key: "{{ bc_kolla_public_key }}"
+    key: "{{ kolla_public_key }}"
   become: true
-
-- name: Set ssh private key (kolla)
-  copy:
-    content: "{{ bc_kolla_private_key }}"
-    dest: "/home/{{ bc_operator_user }}/.ssh/id_rsa.kolla"
-    owner: "{{ bc_operator_user }}"
-    mode: 0600
-  become: true
-  when: "'kolla' in group_names"

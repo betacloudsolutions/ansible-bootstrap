@@ -16,8 +16,7 @@ bc_vlan_support: no
 
 # kolla
 
-bc_kolla_private_key: ""
-bc_kolla_public_key: ""
+kolla_public_key: ""
 
 # resolvconf
 
