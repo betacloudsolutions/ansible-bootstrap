@@ -13,9 +13,9 @@ operator_user: "dragon"
 
 # networking
 
-bc_bonding_support: no
-bc_disable_ipv6: yes
-bc_vlan_support: no
+disable_ipv6: yes
+bonding_support: no
+vlan_support: no
 
 # kolla
 

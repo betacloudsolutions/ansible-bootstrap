@@ -21,11 +21,11 @@
   tags: operator
 
 - include: network_bonding.yml
-  when: bc_bonding_support|bool
+  when: bonding_support|bool
   tags: networking
 
 - include: network_vlan.yml
-  when: bc_vlan_support|bool
+  when: vlan_support|bool
   tags: networking
 
 - include: sysctl.yml

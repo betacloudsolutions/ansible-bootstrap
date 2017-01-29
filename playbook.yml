@@ -11,8 +11,8 @@
 - hosts: all
 
   vars:
-    bc_bonding_support: yes
-    bc_vlan_support: yes
+    bonding_support: yes
+    vlan_support: yes
     use_operator_user: yes
 
   pre_tasks:
