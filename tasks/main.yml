@@ -17,7 +17,7 @@
   tags: common
 
 - include: operator.yml
-  when: bc_use_operator_user|bool
+  when: use_operator_user|bool
   tags: operator
 
 - include: network_bonding.yml

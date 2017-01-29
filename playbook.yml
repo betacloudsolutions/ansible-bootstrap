@@ -13,13 +13,13 @@
   vars:
     bc_bonding_support: yes
     bc_vlan_support: yes
-    bc_use_operator_user: yes
+    use_operator_user: yes
 
   pre_tasks:
 
   - name: Add operator user
     user:
-      name: "{{ bc_operator_user }}"
+      name: "{{ operator_user }}"
       uid: 2000
       shell: /bin/bash
     become: true

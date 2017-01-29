@@ -1,12 +1,15 @@
 ---
 authorized_keys: []
 
-# mkpasswd --method=sha-512
-bc_operator_password: ""
-bc_operator_user: "dragon"
 bc_timezone: "Universal"
 bc_upgrade_package: yes
-bc_use_operator_user: no
+
+# operator user
+
+use_operator_user: no
+# mkpasswd --method=sha-512
+operator_password: ""
+operator_user: "dragon"
 
 # networking
 
