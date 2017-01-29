@@ -20,7 +20,7 @@ kolla_public_key: ""
 
 # resolvconf
 
-bc_resolvconf_nameserver:
+resolvconf_nameserver:
   - 8.8.8.8
   - 8.8.4.4
-bc_resolvconf_search: betacloud.io
+resolvconf_search: betacloud.io
