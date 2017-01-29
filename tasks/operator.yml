@@ -23,7 +23,7 @@
   authorized_key:
     key: "{{ item }}"
     user: "{{ bc_operator_user }}"
-  with_items: "{{ bc_authorized_keys }}"
+  with_items: "{{ authorized_keys }}"
   become: true
 
 - name: Set language variables in bashrc configuration file

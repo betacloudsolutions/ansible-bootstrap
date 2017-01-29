@@ -39,7 +39,7 @@
   authorized_key:
     key: "{{ item }}"
     user: root
-  with_items: "{{ bc_authorized_keys }}"
+  with_items: "{{ authorized_keys }}"
   become: true
 
 - name: Remove snakeoil certificate

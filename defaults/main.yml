@@ -1,5 +1,5 @@
 ---
-bc_authorized_keys: []
+authorized_keys: []
 
 # mkpasswd --method=sha-512
 bc_operator_password: ""
