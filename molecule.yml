@@ -19,7 +19,7 @@ ansible:
   timeout: 120
   host_vars:
     molecule-betacloud-bootstrap:
-    - bc_internal_address: 10.100.100.100
+    - internal_address: 10.100.100.100
 verifier:
   name: testinfra
 molecule:

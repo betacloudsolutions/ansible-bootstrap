@@ -4,5 +4,5 @@
 
 {% for item in groups.all %}
 {% set short_name = item.split('.') %}
-{{ hostvars[item].bc_internal_address }} {{ item }} {{ short_name[0] }}
+{{ hostvars[item].internal_address }} {{ item }} {{ short_name[0] }}
 {% endfor %}
