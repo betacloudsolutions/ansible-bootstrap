@@ -16,6 +16,7 @@
     name: vm.max_map_count
     value: 262144
     sysctl_set: yes
+    sysctl_file: /etc/sysctl.d/elasticsearch.conf
   when: "'elasticsearch' in group_names"
   become: true
 
