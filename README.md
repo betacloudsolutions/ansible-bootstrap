@@ -21,3 +21,14 @@ Example Playbook
   roles:
   - role: betacloud.bootstrap
 ```
+
+License
+-------
+
+This file is subject to the terms and conditions defined in file 'LICENSE',
+which is part of this repository.
+
+Author information
+------------------
+
+This role was created by [Betacloud Solutions GmbH](https://betacloud-solutions.de).
