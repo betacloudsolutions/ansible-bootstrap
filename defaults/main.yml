@@ -1,9 +1,6 @@
 ---
 authorized_keys: []
 
-bc_timezone: Universal
-bc_upgrade_package: yes
-
 # operator user
 
 use_operator_user: no
