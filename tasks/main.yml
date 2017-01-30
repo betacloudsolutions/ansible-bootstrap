@@ -21,3 +21,7 @@
 
 - include: sysctl.yml
   tags: sysctl
+
+- include: iscsi.yml
+  tags: iscsi
+  when: "'iscsid' in group_names"

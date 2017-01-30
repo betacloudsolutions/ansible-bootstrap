@@ -15,6 +15,7 @@ openstack:
         - elasticsearch
         - molecule
         - ubuntu
+        - iscsid
       security_groups:
         - ssh
 ansible:
