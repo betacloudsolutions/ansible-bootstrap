@@ -10,13 +10,17 @@ openstack:
       sshuser: ubuntu
       ssh_timeout: 120
       ansible_groups:
-        - ubuntu
         - elasticsearch
+        - molecule
+        - ubuntu
       security_groups:
         - ssh
 ansible:
   playbook: playbook.yml
   timeout: 120
+  host_vars:
+    molecule-betacloud-bootstrap:
+      - operator_password: $6$8w7/5t2r37WS$61H9A/0I68kgvEjTthmQzOOj3Yu2mKlhd8ehudSmqi4QHiKXvh5qtXPiYhKhVUdUI2MvlL8VAOhVDksB.gGZD0
 verifier:
   name: testinfra
 molecule:

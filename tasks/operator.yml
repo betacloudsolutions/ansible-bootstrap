@@ -26,7 +26,7 @@
   with_items: "{{ authorized_keys }}"
   become: true
 
-- name: Set language variables in bashrc configuration file
+- name: Set language variables in .bashrc configuration file
   lineinfile:
     dest: "/home/{{ operator_user }}/.bashrc"
     line: "{{ item }}"
@@ -41,7 +41,8 @@
     name: "{{ operator_user }}"
     update_password: always
     password: "{{ operator_password }}"
-  become: True
+  when: operator_password != ""
+  become: true
 
 - name: Set ssh authorized key (kolla)
   authorized_key:
