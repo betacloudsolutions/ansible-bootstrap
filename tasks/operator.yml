@@ -17,9 +17,15 @@
   with_items: "{{ authorized_keys }}"
   become: true
 
+# NOTE: http://stackoverflow.com/questions/33343215/how-to-get-remote-users-home-directory-in-ansible
+- name: Get home directory of operator user
+  shell: "getent passwd {{ operator_user }} | cut -d: -f6"
+  changed_when: false
+  register: home_operator
+
 - name: Set language variables in .bashrc configuration file
   lineinfile:
-    dest: "/home/{{ operator_user }}/.bashrc"
+    dest: "{{ home_operator.stdout }}/.bashrc"
     line: "{{ item }}"
   with_items:
     - "export LANGUAGE=en_US.UTF-8"
