@@ -2,10 +2,11 @@
 
 This is an Ansible role that bootstraps an Ubuntu servers.
 
-Requirements
-------------
+Supported Linux distributions
+-----------------------------
 
-Ubuntu 16.04 (Xenial)
+* Ubuntu 16.04 (Xenial)
+* CentOS 7
 
 Dependencies
 ------------

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ -z $(lsmod | grep 8021q ) ] ; then
+        exec /sbin/modprobe 8021q >/dev/null 2>&1
+fi

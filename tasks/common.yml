@@ -1,25 +1,6 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this repository.
 ---
-- name: Copy sources.list file
-  copy:
-    src: sources.list
-    dest: /etc/apt/sources.list
-    owner: root
-    group: root
-    mode: 0644
-  become: true
-
-- name: Update package cache
-  package:
-    update_cache: yes
-  become: true
-
-- name: Upgrade all packages
-  package:
-    upgrade: dist
-  become: true
-
 - name: Restart rsyslog service
   service:
     name: rsyslog
@@ -31,15 +12,6 @@
     key: "{{ item }}"
     user: root
   with_items: "{{ authorized_keys }}"
-  become: true
-
-- name: Remove snakeoil certificate
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - /etc/ssl/private/ssl-cert-snakeoil.key
-    - /etc/ssl/certs/ssl-cert-snakeoil.pem
   become: true
 
 # http://truemetal.org/universe/blog/2013/03/disable-ipv6-on-linux-centos/

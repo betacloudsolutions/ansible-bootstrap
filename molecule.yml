@@ -6,24 +6,42 @@ driver:
 openstack:
   keyfile: /ssh/id_rsa
   instances:
-    - name: molecule-betacloud-bootstrap
+    - name: molecule-betacloud-bootstrap-ubuntu
       image: 'Ubuntu 16.04'
       flavor: vps-ssd-1
       sshuser: ubuntu
       ssh_timeout: 120
       ansible_groups:
         - elasticsearch
-        - molecule
-        - ubuntu
         - iscsid
+        - molecule
+        - rabbitmq
+        - ubuntu
+      security_groups:
+        - ssh
+    - name: molecule-betacloud.docker-centos
+      image: 'Centos 7'
+      flavor: vps-ssd-1
+      sshuser: centos
+      ssh_timeout: 120
+      ansible_groups:
+        - centos
+        - elasticsearch
+        - iscsid
+        - molecule
+        - rabbitmq
       security_groups:
         - ssh
 ansible:
   playbook: playbook.yml
   timeout: 120
-  host_vars:
-    molecule-betacloud-bootstrap:
+  group_vars:
+    centos:
+      - operator_user: centos
+    molecule:
       - operator_password: $6$8w7/5t2r37WS$61H9A/0I68kgvEjTthmQzOOj3Yu2mKlhd8ehudSmqi4QHiKXvh5qtXPiYhKhVUdUI2MvlL8VAOhVDksB.gGZD0
+    ubuntu:
+      - operator_user: ubuntu
 verifier:
   name: testinfra
 molecule:
