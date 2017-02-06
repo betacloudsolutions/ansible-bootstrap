@@ -1,6 +1,11 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this repository.
 ---
+# NOTE: http://docs.openstack.org/developer/kolla/mitaka/selinux.html
+- name: Disable selinux
+  selinux:
+    state: disabled
+
 # FIXME: set repositories for CentOS
 
 - name: Upgrade all packages
