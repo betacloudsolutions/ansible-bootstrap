@@ -21,6 +21,7 @@
   become: true
 
 - include: resolvconf.yml
+  when: "resolvconf_nameserver != []"
   tags: resolvconf
 
 - name: Remove snakeoil certificate
