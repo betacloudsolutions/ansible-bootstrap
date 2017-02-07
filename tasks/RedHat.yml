@@ -16,3 +16,37 @@
   tags:
     - skip_ansible_lint
   become: true
+
+# NOTE: https://bugs.launchpad.net/openstack-ansible/+bug/1662545
+- name: Symlink /etc/init.d/rc file
+  file:
+    dest: /etc/init.d/rc
+    src: /etc/init.d/functions
+    owner: root
+    group: root
+    state: link
+  become: true
+
+# NOTE: https://bugs.launchpad.net/openstack-ansible/+bug/1662622
+- name: Create systemd overlay directory for auditd
+  file:
+    path: /etc/systemd/system/auditd.service.d
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+
+- name: Create systemd overlay file for auditd
+  copy:
+    src: files/auditd.conf
+    dest: /etc/systemd/system/auditd.service.d/auditd.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+  become: true
