@@ -1,10 +1,11 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this repository.
 ---
-# NOTE: http://docs.openstack.org/developer/kolla/mitaka/selinux.html
+# NOTE: http://docs.openstack.org/developer/kolla-ansible/security.html#selinux
 - name: Disable selinux
   selinux:
     state: disabled
+  become: true
 
 # FIXME: set repositories for CentOS
 
