@@ -1,29 +1,27 @@
-require 'vagrant-openstack-provider'
-
-Vagrant.configure('2') do |config|
-
-  config.vm.box           = 'openstack'
-  config.ssh.username     = 'centos'
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-
-  config.vm.provider :openstack do |os|
-    os.openstack_auth_url = 'https://auth.cloud.ovh.net/v2.0'
-    os.username           = '7GNm5Dhdv2Hd'
-    os.password           = '7j2H5s5cN55aVKFqbh5g2turWHs3UzCq'
-    os.tenant_name        = '9003584042686816'
-    os.region             = 'GRA1'
-    os.flavor             = 'vps-ssd-1'
-    os.image              = 'Centos 7'
-    os.security_groups    = ['ssh']
+Vagrant.configure("2") do |config|
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/xenial64"
+    ubuntu.vm.hostname = "bootstrap-ubuntu"
+    ubuntu.vm.synced_folder ".", "/vagrant", disabled: true
+    ubuntu.vm.provision :shell, :inline => "ulimit -n 4096"
+    ubuntu.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbook.yml"
+      ansible.extra_vars = {
+        operator_user: "ubuntu"
+      }
+    end
   end
 
-  config.vm.provision 'ansible' do |ansible|
-    ansible.playbook = 'playbook.yml'
-    ansible.extra_vars = {
-      operator_user: 'centos',
-    }
-    ansible.groups = {
-      'molecule' => ['default']
-    }
+  config.vm.define "centos" do |centos|
+    centos.vm.box = "centos/7"
+    centos.vm.hostname = "bootstrap-centos"
+    centos.vm.synced_folder ".", "/vagrant", disabled: true
+    centos.vm.provision :shell, :inline => "ulimit -n 4096"
+    centos.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbook.yml"
+      ansible.extra_vars = {
+        operator_user: "vagrant"
+      }
+    end
   end
 end

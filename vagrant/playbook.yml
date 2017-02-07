@@ -1,21 +1,20 @@
-# This file is subject to the terms and conditions defined in file 'LICENSE',
-# which is part of this repository.
 ---
-- hosts: all
+- name: Install python version 2
+  hosts: all
   gather_facts: no
+
   tasks:
-  - name: Install python version 2 on Ubuntu
+  - name: Install python version 2 on ubuntu
     raw: test -e /usr/bin/python || (test -e /usr/bin/apt && (apt -y update && apt install -y python-minimal))
-    register: result
-    changed_when: result.rc != 0
     become: true
 
-- hosts: all
+- name: Playbook for role testing
+  hosts: all
 
   vars:
     bonding_support: yes
-    vlan_support: yes
     use_operator_user: yes
+    vlan_support: yes
 
   roles:
-  - role: betacloud.bootstrap
+    - role: "../../ansible-betacloud.bootstrap"

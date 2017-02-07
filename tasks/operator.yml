@@ -27,6 +27,7 @@
   lineinfile:
     dest: "{{ home_operator.stdout }}/.bashrc"
     line: "{{ item }}"
+    create: yes
   with_items:
     - "export LANGUAGE=en_US.UTF-8"
     - "export LANG=en_US.UTF-8"

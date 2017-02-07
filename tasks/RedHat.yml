@@ -48,5 +48,6 @@
 
 - name: Reload systemd
   systemd:
+    name: auditd
     daemon_reload: yes
   become: true
