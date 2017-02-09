@@ -19,7 +19,7 @@ openstack:
         - ubuntu
       security_groups:
         - ssh
-    - name: molecule-betacloud.docker-centos
+    - name: molecule-betacloud-bootstrap-centos
       image: 'Centos 7'
       flavor: vps-ssd-1
       sshuser: centos
@@ -35,6 +35,11 @@ openstack:
 ansible:
   playbook: playbook.yml
   timeout: 120
+  host_vars:
+    molecule-betacloud-bootstrap-ubuntu:
+      - internal_address: 192.168.10.10
+    molecule-betacloud-bootstrap-centos:
+      - internal_address: 192.168.10.20
   group_vars:
     centos:
       - operator_user: centos
