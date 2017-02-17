@@ -15,7 +15,7 @@
   vars:
     bonding_support: yes
     vlan_support: yes
-    use_operator_user: yes
+    configure_operator_user: yes
 
   roles:
   - role: ansible-betacloud.bootstrap
