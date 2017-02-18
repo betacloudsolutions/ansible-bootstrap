@@ -2,6 +2,12 @@
 # which is part of this repository.
 ---
 # NOTE: http://docs.openstack.org/developer/kolla-ansible/security.html#selinux
+- name:
+  package:
+    name: libselinux-python
+    state: present
+  become: true
+
 - name: Disable selinux
   selinux:
     state: disabled
