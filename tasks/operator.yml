@@ -47,3 +47,19 @@
     user: "{{ operator_user }}"
     key: "{{ kolla_public_key }}"
   become: true
+
+- name: Install tools
+  package:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - tmux
+
+- name: Copy tmux configuration file
+  copy:
+    src: tmux.conf
+    dest: "{{ home_operator.stdout }}/.tmux.conf"
+    mode: 0644
+    owner: "{{ operator_user }}"
+    group: "{{ operator_user }}"
