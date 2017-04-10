@@ -16,6 +16,8 @@
     bonding_support: yes
     vlan_support: yes
     configure_operator_user: yes
+    operator_user: "{{ ansible_user }}"
+    operator_password: "$6$8w7/5t2r37WS$61H9A/0I68kgvEjTthmQzOOj3Yu2mKlhd8ehudSmqi4QHiKXvh5qtXPiYhKhVUdUI2MvlL8VAOhVDksB.gGZD0"
 
   roles:
   - role: ansible-betacloud.bootstrap
