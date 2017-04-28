@@ -3,5 +3,5 @@
 *.retry
 tests/__pycache__
 .cache
-betacloud.docker*.tar.gz
 .vagrant
+vars/molecule.yml

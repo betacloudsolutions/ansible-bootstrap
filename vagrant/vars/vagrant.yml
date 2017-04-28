@@ -1,0 +1,4 @@
+---
+bonding_support: yes
+configure_operator_user: yes
+vlan_support: yes

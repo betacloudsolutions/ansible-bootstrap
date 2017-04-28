@@ -1,11 +1,9 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this repository.
 ---
-# This will solve the following issue with the iscsid container:
+# This will solve the following issue with the iscsid container (https://bugs.launchpad.net/kolla/+bug/1631072)
 #
 # mkdir /sys/kernel/config: operation not permitted
-#
-# https://bugs.launchpad.net/kolla/+bug/1631072
 
 - name: Add configfs to /etc/modules
   lineinfile:
@@ -28,11 +26,9 @@
     enabled: yes
   become: true
 
-# This will solve the following issue with the iscsid container:
+# This will solve the following issue with the iscsid container (http://docs.oracle.com/cd/E64747_01/E68930/html/osrns-issues-22244208.html)
 #
 # iscsid: Can not bind IPC socket
-#
-# http://docs.oracle.com/cd/E64747_01/E68930/html/osrns-issues-22244208.html
 
 - name: Remove open-iscsi
   package:

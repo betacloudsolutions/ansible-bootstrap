@@ -1,22 +1,23 @@
 ---
+# generic
+
 authorized_keys: []
 
 # operator user
 
 configure_operator_user: no
-# mkpasswd --method=sha-512
-operator_password: ""
 operator_user: dragon
+operator_tools:
+  - tmux
+
+# NOTE: Use "mkpasswd --method=sha-512" to generate a password
+# operator_password:
 
 # networking
 
-disable_ipv6: yes
 bonding_support: no
+disable_ipv6: yes
 vlan_support: no
-
-# kolla
-
-kolla_public_key: ""
 
 # resolvconf
 
