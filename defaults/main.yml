@@ -3,6 +3,10 @@
 
 authorized_keys: []
 
+# betacloud
+
+betacloud_management_interface: eth0
+
 # operator user
 
 configure_operator_user: no
