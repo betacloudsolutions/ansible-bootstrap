@@ -17,6 +17,9 @@ openstack:
         - ubuntu
       security_groups:
         - ssh
+      group_vars:
+        ubuntu:
+          betacloud_management_interface: ens3
     - name: molecule-bootstrap-centos
       image: 'Centos 7'
       flavor: vps-ssd-1
@@ -30,6 +33,9 @@ openstack:
         - rabbitmq
       security_groups:
         - ssh
+      group_vars:
+        centos:
+          betacloud_management_interface: eth0
 ansible:
   playbook: playbook.yml
   timeout: 120
