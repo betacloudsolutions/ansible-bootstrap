@@ -3,9 +3,10 @@
 
 authorized_keys: []
 
-# betacloud
+# fluentd
 
-betacloud_management_interface: eth0
+fluentd_port: 5140
+fluentd_host: 127.0.0.1
 
 # operator user
 
