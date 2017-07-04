@@ -29,3 +29,8 @@ resolvconf_nameserver:
   - 8.8.8.8
   - 8.8.4.4
 resolvconf_search: betacloud.io
+
+# redhat/centos
+
+repository_epel_baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
+repository_epel_gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"

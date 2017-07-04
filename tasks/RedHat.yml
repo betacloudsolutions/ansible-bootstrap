@@ -13,7 +13,13 @@
     state: disabled
   become: true
 
-# FIXME: set repositories for CentOS
+- name: Add epel repository
+  yum_repository:
+    name: epel
+    description: EPEL
+    baseurl: "{{ repository_epel_baseurl }}"
+    gpgkey: "{{ repository_epel_gpgkey }}"
+  become: true
 
 - name: Upgrade all packages
   yum:
