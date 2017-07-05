@@ -26,4 +26,4 @@
     vlan_support: yes
 
   roles:
-    - role: ../../ansible-betacloud.bootstrap
+    - role: ../../ansible-bootstrap
