@@ -1,9 +1,8 @@
-# Ansible betacloud.bootstrap
+# Ansible osism.bootstrap
 
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-osism.bootstrap-blue.svg)](https://galaxy.ansible.com/osism/bootstrap/)
 ![Ansible 2.2](https://img.shields.io/badge/Ansible-2.2-green.png?style=flat)
 ![Ansible 2.3](https://img.shields.io/badge/Ansible-2.3-green.png?style=flat)
-
-This is an Ansible role that bootstraps an Ubuntu servers.
 
 Supported Linux distributions
 -----------------------------
@@ -27,4 +26,4 @@ limitations under the License.
 Author information
 ------------------
 
-This role was created by [Betacloud Solutions GmbH](https://betacloud-solutions.de).
+This role was created by [Betacloud Solutions GmbH](https://www.betacloud-solutions.de).

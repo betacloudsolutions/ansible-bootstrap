@@ -29,7 +29,7 @@ vlan_support: no
 resolvconf_nameserver:
   - 8.8.8.8
   - 8.8.4.4
-resolvconf_search: betacloud.io
+resolvconf_search: osism.io
 
 # redhat/centos
 
