@@ -9,6 +9,9 @@ Vagrant.configure("2") do |config|
       ansible.extra_vars = {
         operator_user: 'ubuntu'
       }
+      ansible.host_vars = {
+        "bootstrap-ubuntu" => {"internal_address" => "1.2.3.4"}
+      }
     end
   end
 
@@ -21,6 +24,9 @@ Vagrant.configure("2") do |config|
 #      ansible.galaxy_role_file = '../test-requirements.yml'
       ansible.extra_vars = {
         operator_user: 'vagrant'
+      }
+      ansible.host_vars = {
+        "bootstrap-centos" => {"internal_address" => "1.2.3.4"}
       }
     end
   end
