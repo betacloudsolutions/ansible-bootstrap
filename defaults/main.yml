@@ -1,13 +1,16 @@
 ---
+##########################
 # generic
 
 authorized_keys: []
 
+##########################
 # fluentd
 
 fluentd_port: 5140
 fluentd_host: 127.0.0.1
 
+##########################
 # operator user
 
 configure_operator_user: no
@@ -18,12 +21,14 @@ operator_tools:
 # NOTE: Use "mkpasswd --method=sha-512" to generate a password
 # operator_password:
 
+##########################
 # networking
 
 bonding_support: no
 disable_ipv6: yes
 vlan_support: no
 
+##########################
 # resolvconf
 
 resolvconf_nameserver:
@@ -31,7 +36,13 @@ resolvconf_nameserver:
   - 8.8.4.4
 resolvconf_search: osism.io
 
+##########################
 # redhat/centos
 
 repository_epel_baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
 repository_epel_gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
+
+##########################
+# packages
+
+python_requirements: []

@@ -1,0 +1,25 @@
+---
+- name: Install pip package
+  package:
+    name: python-pip
+    state: present
+  become: true
+
+- name: Upgrade pip
+  pip:
+    name: pip
+    state: latest
+  become: true
+
+- name: Install required python packages
+  shell: |
+    pip install '{{ item }}'
+  args:
+    executable: /bin/bash
+  with_items: "{{ python_requirements }}"
+  become: true
+
+# NOTE: Dependency conflict: an older version of the 'docker-py' package may be polluting the namespace. If you're experiencing crashes, run the following command to remedy the issue
+- name: Fix docker-py/docker naming issues
+  shell: pip uninstall --yes docker-py; pip uninstall --yes docker; pip install docker
+  become: true

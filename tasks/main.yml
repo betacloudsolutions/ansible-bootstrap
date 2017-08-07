@@ -22,6 +22,9 @@
 - include: sysctl.yml
   tags: sysctl
 
+- include: packages.yml
+  tags: packages
+
 - include: iscsi.yml
   tags: iscsi
   when:
