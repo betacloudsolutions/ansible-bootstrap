@@ -5,7 +5,6 @@
   include: "{{ ansible_os_family }}.yml"
 
 - include: operator.yml
-  when: configure_operator_user|bool
   tags: operator
 
 - include: common.yml

@@ -13,7 +13,6 @@ fluentd_host: 127.0.0.1
 ##########################
 # operator user
 
-configure_operator_user: no
 operator_user: dragon
 operator_tools:
   - tmux
