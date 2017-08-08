@@ -4,27 +4,28 @@
 - name: Include distribution specific tasks
   include: "{{ ansible_os_family }}.yml"
 
-- include: operator.yml
+- name: Include operator tasks
+  include: operator.yml
   tags: operator
 
-- include: common.yml
+- name: Include networking tasks
+  include: networking.yml
+  tags: networking
+
+- name: Include common tasks
+  include: common.yml
   tags: common
 
-- include: network_bonding.yml
-  when: bonding_support|bool
-  tags: networking
-
-- include: network_vlan.yml
-  when: vlan_support|bool
-  tags: networking
-
-- include: sysctl.yml
+- name: Include sysctl tasks
+  include: sysctl.yml
   tags: sysctl
 
-- include: packages.yml
+- name: Include packages tasks
+  include: packages.yml
   tags: packages
 
-- include: iscsi.yml
+- name: Include iscsi tasks
+  include: iscsi.yml
   tags: iscsi
   when:
     - ansible_os_family == 'Debian'

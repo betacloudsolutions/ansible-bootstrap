@@ -1,0 +1,69 @@
+# This file is subject to the terms and conditions defined in file 'LICENSE',
+# which is part of this repository.
+---
+- name: Install ethtool package
+  package:
+    name: ethtool
+    state: present
+  become: true
+
+- name: Enable bonding kernel module on debian/ubuntu
+  lineinfile:
+    line: bonding
+    state: present
+    dest: /etc/modules
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Enable bonding kernel module on centos/rhel
+  copy:
+    src: bonding.modules
+    dest: /etc/sysconfig/modules/bonding.modules
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  when: ansible_os_family == 'RedHat'
+
+- name: Load bonding kernel module
+  modprobe:
+    name: bonding
+    state: present
+  become: true
+
+- name: Enable 8021q kernel module on debian/ubuntu
+  lineinfile:
+    line: 8021q
+    state: present
+    dest: /etc/modules
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Enable 8021q kernel module on centos/rhel
+  copy:
+    src: 8021q.modules
+    dest: /etc/sysconfig/modules/8021q.modules
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  when: ansible_os_family == 'RedHat'
+
+- name: Load 8021q kernel module
+  modprobe:
+    name: 8021q
+    state: present
+  become: true
+
+# http://truemetal.org/universe/blog/2013/03/disable-ipv6-on-linux-centos/
+- name: Disable ipv6 support
+  sysctl:
+    name: "{{ item }}"
+    value: 1
+    state: present
+  with_items:
+    - net.ipv6.conf.all.disable_ipv6
+    - net.ipv6.conf.default.disable_ipv6
+    - net.ipv6.conf.lo.disable_ipv6
+  when: disable_ipv6|bool
+  become: true

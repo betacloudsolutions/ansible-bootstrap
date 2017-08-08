@@ -23,9 +23,7 @@ operator_tools:
 ##########################
 # networking
 
-bonding_support: no
 disable_ipv6: yes
-vlan_support: no
 
 ##########################
 # resolvconf
