@@ -30,3 +30,7 @@
   when:
     - ansible_os_family == 'Debian'
     - "'iscsid' in group_names"
+
+- name: Include facts tasks
+  include: facts.yml
+  tags: facts
