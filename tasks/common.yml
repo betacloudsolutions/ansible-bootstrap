@@ -14,23 +14,6 @@
   with_items: "{{ authorized_keys }}"
   become: true
 
-# Install postfix here to be able to disable ipv6 (if required, will normally be installed by osa)
-- name: Install postfix
-  package:
-    name: postfix
-    state: present
-  when: disable_ipv6|bool
-  become: true
-
-# NOTE: Change "dest" to "path" with Ansible >= 2.3
-- name: Only use ipv4 for postfix
-  lineinfile:
-    dest: /etc/postfix/main.cf
-    regexp: '^inet_protocols ='
-    line: 'inet_protocols = ipv4'
-  when: disable_ipv6|bool
-  become: true
-
 - name: Generate /etc/hosts file
   template:
     src: hosts.j2

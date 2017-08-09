@@ -21,11 +21,6 @@ operator_tools:
 # operator_password:
 
 ##########################
-# networking
-
-disable_ipv6: yes
-
-##########################
 # resolvconf
 
 resolvconf_nameserver:
