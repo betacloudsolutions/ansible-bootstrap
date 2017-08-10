@@ -37,4 +37,5 @@ repository_epel_gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-
 ##########################
 # packages
 
-python_requirements: []
+required_packages_bootstrap:
+  - python-docker

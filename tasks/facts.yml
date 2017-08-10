@@ -1,10 +1,4 @@
 ---
-- name: Install required packages
-  package:
-    name: python-docker
-    state: present
-  become: true
-
 - name: Create custom fact directory
   file:
     path: /etc/ansible/facts.d
