@@ -1,8 +1,10 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this repository.
 ---
-- name: Include distribution specific tasks
-  include: "{{ ansible_os_family }}.yml"
+- name: Include resolvconf tasks
+  include: resolvconf.yml
+  when: "resolvconf_nameserver != []"
+  tags: resolvconf
 
 - name: Include operator tasks
   include: operator.yml

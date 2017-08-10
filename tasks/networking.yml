@@ -7,23 +7,12 @@
     state: present
   become: true
 
-- name: Enable bonding kernel module on debian/ubuntu
+- name: Enable bonding kernel module
   lineinfile:
     line: bonding
     state: present
     dest: /etc/modules
   become: true
-  when: ansible_os_family == 'Debian'
-
-- name: Enable bonding kernel module on centos/rhel
-  copy:
-    src: bonding.modules
-    dest: /etc/sysconfig/modules/bonding.modules
-    owner: root
-    group: root
-    mode: 0755
-  become: true
-  when: ansible_os_family == 'RedHat'
 
 - name: Load bonding kernel module
   modprobe:
@@ -31,23 +20,12 @@
     state: present
   become: true
 
-- name: Enable 8021q kernel module on debian/ubuntu
+- name: Enable 8021q kernel module
   lineinfile:
     line: 8021q
     state: present
     dest: /etc/modules
   become: true
-  when: ansible_os_family == 'Debian'
-
-- name: Enable 8021q kernel module on centos/rhel
-  copy:
-    src: 8021q.modules
-    dest: /etc/sysconfig/modules/8021q.modules
-    owner: root
-    group: root
-    mode: 0755
-  become: true
-  when: ansible_os_family == 'RedHat'
 
 - name: Load 8021q kernel module
   modprobe:

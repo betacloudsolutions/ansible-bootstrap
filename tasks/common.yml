@@ -30,3 +30,12 @@
     mode: 0644
   become: true
   notify: Restart rsyslog service
+
+- name: Remove snakeoil certificate
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/ssl/private/ssl-cert-snakeoil.key
+    - /etc/ssl/certs/ssl-cert-snakeoil.pem
+  become: true

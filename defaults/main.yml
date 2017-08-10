@@ -29,12 +29,6 @@ resolvconf_nameserver:
 resolvconf_search: osism.io
 
 ##########################
-# redhat/centos
-
-repository_epel_baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
-repository_epel_gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
-
-##########################
 # packages
 
 required_packages_bootstrap:
