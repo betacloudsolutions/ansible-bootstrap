@@ -11,16 +11,6 @@ fluentd_port: 5140
 fluentd_host: 127.0.0.1
 
 ##########################
-# operator user
-
-operator_user: dragon
-operator_tools:
-  - tmux
-
-# NOTE: Use "mkpasswd --method=sha-512" to generate a password
-# operator_password:
-
-##########################
 # resolvconf
 
 resolvconf_nameserver:

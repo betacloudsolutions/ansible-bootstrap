@@ -23,9 +23,9 @@ ansible:
   host_vars:
     molecule-bootstrap-ubuntu:
       internal_address: 1.2.3.4
-#dependency:
-#  name: galaxy
-#  requirements_file: test-requirements.yml
+dependency:
+  name: galaxy
+  requirements_file: test-requirements.yml
 verifier:
   name: testinfra
   enabled: False

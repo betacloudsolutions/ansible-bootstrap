@@ -6,10 +6,6 @@
   when: "resolvconf_nameserver != []"
   tags: resolvconf
 
-- name: Include operator tasks
-  include: operator.yml
-  tags: operator
-
 - name: Include networking tasks
   include: networking.yml
   tags: networking

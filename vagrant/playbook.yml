@@ -12,12 +12,14 @@
     changed_when: result.rc != 0
     become: true
 
-- name: Playbook for role testing
+- name: Playbook for preparations
   hosts: all
 
-  vars:
-    configure_operator_user: yes
-    operator_password: "$6$8w7/5t2r37WS$61H9A/0I68kgvEjTthmQzOOj3Yu2mKlhd8ehudSmqi4QHiKXvh5qtXPiYhKhVUdUI2MvlL8VAOhVDksB.gGZD0"
+  roles:
+  - role: osism.operator
+
+- name: Playbook for role testing
+  hosts: all
 
   roles:
     - role: ../../ansible-bootstrap
