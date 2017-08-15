@@ -1,10 +1,5 @@
 ---
 ##########################
-# generic
-
-authorized_keys: []
-
-##########################
 # fluentd
 
 fluentd_port: 5140

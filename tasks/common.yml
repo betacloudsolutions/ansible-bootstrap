@@ -7,13 +7,6 @@
     state: restarted
   become: true
 
-- name: Set ssh authorized keys
-  authorized_key:
-    key: "{{ item }}"
-    user: root
-  with_items: "{{ authorized_keys }}"
-  become: true
-
 - name: Generate /etc/hosts file
   template:
     src: hosts.j2
