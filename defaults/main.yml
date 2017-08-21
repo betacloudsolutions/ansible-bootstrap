@@ -1,5 +1,15 @@
 ---
 ##########################
+# generic
+
+management_interface: eth0
+
+##########################
+# hosts
+
+hosts_additional_entries: {}
+
+##########################
 # fluentd
 
 fluentd_port: 5140

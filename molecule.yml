@@ -22,7 +22,7 @@ ansible:
   timeout: 120
   host_vars:
     molecule-bootstrap-ubuntu:
-      internal_address: 1.2.3.4
+      management_interface: ens3
 dependency:
   name: galaxy
   requirements_file: test-requirements.yml

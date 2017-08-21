@@ -5,5 +5,10 @@
 
 {% for item in groups.all %}
 {% set short_name = item.split('.') %}
-{{ hostvars[item]['internal_address'] }} {{ item }} {{ short_name[0] }}
+{{ hostvars[item]['ansible_' + hostvars[item]['management_interface']]['ipv4']['address'] }} {{ item }} {{ short_name[0] }}
+{% endfor %}
+
+{% for hostname, address in hosts_additional_entries.iteritems() %}
+{% set short_name = hostname.split('.') %}
+{{ address }} {{ hostname }} {{ short_name[0] }}
 {% endfor %}
