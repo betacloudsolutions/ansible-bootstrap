@@ -1,4 +1,11 @@
 ---
+- name: Cleanup installed packages
+  package:
+    name: "{{ item }}"
+    state: absent
+  become: true
+  with_items: "{{ cleanup_packages_bootstrap }}"
+
 - name: Install required packages
   package:
     name: "{{ item }}"

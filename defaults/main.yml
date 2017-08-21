@@ -18,3 +18,9 @@ resolvconf_search: osism.io
 
 required_packages_bootstrap:
   - python-docker
+
+cleanup_packages_bootstrap:
+  - apport
+  - apport-symptoms
+  - python3-apport
+  - ubuntu-server
