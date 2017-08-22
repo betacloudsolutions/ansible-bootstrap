@@ -20,9 +20,6 @@ openstack:
 ansible:
   playbook: playbook.yml
   timeout: 120
-  host_vars:
-    molecule-bootstrap-ubuntu:
-      management_interface: ens3
 dependency:
   name: galaxy
   requirements_file: test-requirements.yml
