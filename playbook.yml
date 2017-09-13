@@ -21,4 +21,4 @@
   hosts: all
 
   roles:
-  - role: ansible-bootstrap
+  - role: ansible-common

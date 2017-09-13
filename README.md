@@ -1,6 +1,6 @@
-# Ansible osism.bootstrap
+# Ansible osism.common
 
-[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-osism.bootstrap-blue.svg)](https://galaxy.ansible.com/osism/bootstrap/)
+[![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-osism.common-blue.svg)](https://galaxy.ansible.com/osism/common/)
 ![Ansible 2.2](https://img.shields.io/badge/Ansible-2.2-green.png?style=flat)
 ![Ansible 2.3](https://img.shields.io/badge/Ansible-2.3-green.png?style=flat)
 

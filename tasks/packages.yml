@@ -4,11 +4,11 @@
     name: "{{ item }}"
     state: absent
   become: true
-  with_items: "{{ cleanup_packages_bootstrap }}"
+  with_items: "{{ cleanup_packages_common }}"
 
 - name: Install required packages
   package:
     name: "{{ item }}"
     state: present
   become: true
-  with_items: "{{ required_packages_bootstrap }}"
+  with_items: "{{ required_packages_common }}"

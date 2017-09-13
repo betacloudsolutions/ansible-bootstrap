@@ -8,10 +8,10 @@ fluentd_host: 127.0.0.1
 ##########################
 # packages
 
-required_packages_bootstrap:
+required_packages_common:
   - python-docker
 
-cleanup_packages_bootstrap:
+cleanup_packages_common:
   - apport
   - apport-symptoms
   - python3-apport

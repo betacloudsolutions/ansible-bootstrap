@@ -4,7 +4,7 @@ driver:
 openstack:
   keyfile: /ssh/id_rsa
   instances:
-    - name: molecule-bootstrap-ubuntu
+    - name: molecule-common-ubuntu
       image: 'Ubuntu 16.04 (Xenial Xerus)'
       flavor: 1C-4GB-20GB
       sshuser: ubuntu
