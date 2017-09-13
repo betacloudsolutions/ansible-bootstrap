@@ -6,14 +6,6 @@ fluentd_port: 5140
 fluentd_host: 127.0.0.1
 
 ##########################
-# resolvconf
-
-resolvconf_nameserver:
-  - 8.8.8.8
-  - 8.8.4.4
-resolvconf_search: osism.io
-
-##########################
 # packages
 
 required_packages_bootstrap:
