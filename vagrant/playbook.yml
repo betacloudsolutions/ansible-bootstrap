@@ -13,11 +13,14 @@
 - name: Playbook for preparations
   hosts: all
 
-  roles:
-  - role: osism.operator
+  roles: []
 
 - name: Playbook for role testing
   hosts: all
+
+  vars:
+    operator_user: ubuntu
+    operator_group: ubuntu
 
   roles:
     - role: ../../ansible-common
