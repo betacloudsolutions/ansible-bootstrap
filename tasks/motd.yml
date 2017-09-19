@@ -1,0 +1,23 @@
+---
+- name: Cleanup /etc/update-motd.d
+  file:
+    state: absent
+    path: "{{ item }}"
+  become: true
+  with_items:
+    - 00-header
+    - 10-help-text
+    - 90-updates-available
+    - 91-release-upgrade
+
+- name: Disable motd banner in ssh pam session
+  lineinfile:
+    dest: /etc/pam.d/sshd
+    regexp: "{{ item.regex }}"
+    line: "{{ item.line }}"
+  become: true
+  with_items:
+    - regex: '^session    optional     pam_motd.so  motd=/run/motd.dynamic$'
+      line: '# session    optional     pam_motd.so  motd=/run/motd.dynamic'
+    - regex: '^session    optional     pam_motd.so noupdate$'
+      line: '# session    optional     pam_motd.so noupdate'

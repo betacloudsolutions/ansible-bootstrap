@@ -27,3 +27,7 @@
 - name: Include facts tasks
   include: facts.yml
   tags: facts
+
+- name: Include motd tasks
+  include: motd.yml
+  tags: motd
