@@ -25,3 +25,7 @@
     - /etc/ssl/private/ssl-cert-snakeoil.key
     - /etc/ssl/certs/ssl-cert-snakeoil.pem
   become: true
+
+- name: Sync hardware clock
+  command: hwclock --systohc
+  become: true
