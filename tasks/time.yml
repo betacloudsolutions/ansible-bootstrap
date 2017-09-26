@@ -1,0 +1,8 @@
+---
+- name: Sync hardware clock
+  command: hwclock --systohc
+  become: true
+
+- name: Disable timesyncd
+  command: timedatectl set-ntp false
+  become: true
