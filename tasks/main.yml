@@ -21,6 +21,10 @@
   include: packages.yml
   tags: packages
 
+- name: Include services tasks
+  include: services.yml
+  tags: services
+
 - name: Include iscsi tasks
   include: iscsi.yml
   tags: iscsi

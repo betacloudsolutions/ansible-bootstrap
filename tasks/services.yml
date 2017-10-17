@@ -1,0 +1,9 @@
+---
+- name: Cleanup services
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  become: true
+  ignore_errors: yes
+  with_items: "{{ cleanup_services_common }}"

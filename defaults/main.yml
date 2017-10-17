@@ -16,3 +16,5 @@ cleanup_packages_common:
   - apport-symptoms
   - python3-apport
   - ubuntu-server
+
+cleanup_services_common: []
