@@ -5,7 +5,10 @@ import socket
 
 import docker
 
-client = docker.APIClient(base_url='unix://var/run/docker.sock')
+if docker.version_info[0] == 2:
+    client = docker.APIClient(base_url='unix://var/run/docker.sock')
+elif docker.version_info[0] == 1:
+    client = docker.Client(base_url='unix://var/run/docker.sock')
 
 containers = []
 for container in client.containers():
