@@ -21,4 +21,4 @@ for container in client.containers():
         "id": container['Id']
     })
 
-print json.dumps({"docker_containers": containers})
+print json.dumps(containers)
