@@ -1,0 +1,30 @@
+---
+- name: Install python2
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Install python2
+    raw: test -e /usr/bin/python || (test -e /usr/bin/apt && (apt -y update && apt install -y python-minimal))
+    register: result
+    changed_when: result.rc != 0
+
+- name: Playbook for preparations
+  hosts: all
+
+  tasks:
+    - name: Install required packages
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - dbus
+        - sudo
+
+    - name: Create /etc/modules file
+      file:
+        path: /etc/modules
+        state: touch
+        owner: root
+        group: root
+        mode: 0644

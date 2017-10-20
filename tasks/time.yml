@@ -2,7 +2,9 @@
 - name: Sync hardware clock
   command: hwclock --systohc
   become: true
+  changed_when: True
 
 - name: Disable timesyncd
   command: timedatectl set-ntp false
   become: true
+  changed_when: True

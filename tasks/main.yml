@@ -1,13 +1,15 @@
-# This file is subject to the terms and conditions defined in file 'LICENSE',
-# which is part of this repository.
 ---
 - name: Include time tasks
   include: time.yml
   tags: time
 
-- name: Include networking tasks
-  include: networking.yml
+- name: Include kernel modules tasks
+  include: kernel_modules.yml
   tags: networking
+
+- name: Include packages tasks
+  include: packages.yml
+  tags: packages
 
 - name: Include common tasks
   include: common.yml
@@ -17,20 +19,9 @@
   include: sysctl.yml
   tags: sysctl
 
-- name: Include packages tasks
-  include: packages.yml
-  tags: packages
-
 - name: Include services tasks
   include: services.yml
   tags: services
-
-- name: Include iscsi tasks
-  include: iscsi.yml
-  tags: iscsi
-  when:
-    - ansible_os_family == 'Debian'
-    - "'iscsid' in group_names"
 
 - name: Include facts tasks
   include: facts.yml
