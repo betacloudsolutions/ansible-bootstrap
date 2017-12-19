@@ -1,40 +1,12 @@
 ---
-# https://github.com/docker-library/elasticsearch/issues/98
-- name: Set vm.max_map_count on elasticsearch nodes
+- name: "Set sysctl parameters on {{ item }} nodes"
   sysctl:
-    name: vm.max_map_count
-    value: 262144
+    name: "{{ item_in_block.name }}"
+    value: "{{ item_in_block.value }}"
     sysctl_set: yes
-    sysctl_file: /etc/sysctl.d/elasticsearch.conf
-  when: "'elasticsearch' in group_names"
+    sysctl_file: "/etc/sysctl.d/{{ item }}.conf"
+  when: "item in group_names or item == 'all'"
+  with_items: "{{ sysctl_common[item] }}"
   become: true
-
-- name: Set rabbitmq tuning parameters
-  sysctl:
-    name: "{{ item.name }}"
-    value: "{{ item.value }}"
-    sysctl_set: yes
-    sysctl_file: /etc/sysctl.d/rabbitmq.conf
-  with_items:
-    - name: net.ipv4.tcp_keepalive_time
-      value: 6
-    - name: net.ipv4.tcp_keepalive_intvl
-      value: 3
-    - name: net.ipv4.tcp_keepalive_probes
-      value: 3
-    - name: net.core.wmem_max
-      value: 16777216
-    - name: net.core.rmem_max
-      value: 16777216
-    - name: net.ipv4.tcp_fin_timeout
-      value: 20
-    - name: net.ipv4.tcp_tw_reuse
-      value: 1
-    - name: net.core.somaxconn
-      value: 4096
-    - name: net.ipv4.tcp_syncookies
-      value: 0
-    - name: net.ipv4.tcp_max_syn_backlog
-      value: 8192
-  when: "'rabbitmq' in group_names"
-  become: true
+  loop_control:
+    loop_var: item_in_block

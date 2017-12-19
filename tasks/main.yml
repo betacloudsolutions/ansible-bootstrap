@@ -17,6 +17,7 @@
 
 - name: Include sysctl tasks
   include: sysctl.yml
+  with_items: "{{ sysctl_common }}"
   tags: sysctl
 
 - name: Include services tasks
