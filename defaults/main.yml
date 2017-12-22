@@ -12,7 +12,6 @@ required_packages_common:
   - ethtool
   - python-docker
   - rsyslog
-  - ssh
 
 cleanup_packages_common:
   - apport
