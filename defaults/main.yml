@@ -25,6 +25,7 @@ cleanup_services_common: []
 kernel_modules_common:
   - bonding
   - 8021q
+  - configfs
 
 sysctl_common:
   elasticsearch:
