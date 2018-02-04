@@ -1,30 +1,20 @@
 ---
-- name: Install python2
+- name: Prepare instance for use with Ansible
   hosts: all
-  gather_facts: no
+  gather_facts: false
 
   tasks:
-  - name: Install python2
-    raw: test -e /usr/bin/python || (test -e /usr/bin/apt && (apt -y update && apt install -y python-minimal))
-    register: result
-    changed_when: result.rc != 0
+  - name: A short pause, in order to be sure the instance is ready
+    pause:
+      seconds: 10
 
-- name: Playbook for preparations
+  - name: Install required packages
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    become: true
+    changed_when: false
+
+- name: Playbook for role preparations
   hosts: all
 
-  tasks:
-    - name: Install required packages
-      package:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - dbus
-        - sudo
-
-    - name: Create /etc/modules file
-      file:
-        path: /etc/modules
-        state: touch
-        owner: root
-        group: root
-        mode: 0644
+  roles: []
+  tasks: []

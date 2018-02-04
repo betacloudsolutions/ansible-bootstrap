@@ -2,10 +2,5 @@
 - name: Playbook for role testing
   hosts: all
 
-  vars:
-    operator_user: ubuntu
-    operator_group: ubuntu
-    kernel_modules_common: []
-
   roles:
     - role: ansible-common
