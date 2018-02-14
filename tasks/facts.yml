@@ -1,5 +1,5 @@
 ---
-- name: Create custom fact directory
+- name: common - create custom fact directory
   file:
     path: /etc/ansible/facts.d
     state: "directory"
@@ -8,7 +8,7 @@
     mode: 0755
   become: true
 
-- name: Copy fact files
+- name: common - copy fact files
   copy:
     src: "facts/{{ item }}.fact"
     dest: "/etc/ansible/facts.d/{{ item }}.fact"

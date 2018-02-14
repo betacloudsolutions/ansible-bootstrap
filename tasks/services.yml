@@ -1,9 +1,9 @@
 ---
-- name: Collect facts about services
+- name: common - collect facts about services
   scan_services:
   register: services_state
 
-- name: Cleanup services
+- name: common - cleanup services
   service:
     name: "{{ item }}"
     state: stopped

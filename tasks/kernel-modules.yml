@@ -1,5 +1,5 @@
 ---
-- name: Enable kernel modules
+- name: common - enable kernel modules
   lineinfile:
     line: "{{ item }}"
     state: present
@@ -7,7 +7,7 @@
   become: true
   with_items: "{{ kernel_modules_common }}"
 
-- name: Load bonding kernel module
+- name: common - load bonding kernel module
   modprobe:
     name: "{{ item }}"
     state: present

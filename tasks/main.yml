@@ -1,37 +1,37 @@
 ---
-- name: Include time tasks
+- name: common - include time tasks
   include: time.yml
   tags: time
 
-- name: Include kernel modules tasks
-  include: kernel_modules.yml
-  tags: networking
+- name: common - include kernel modules tasks
+  include: kernel-modules.yml
+  tags: kernel_modules
 
-- name: Include packages tasks
+- name: common - include packages tasks
   include: packages.yml
   tags: packages
 
-- name: Include logging tasks
+- name: common - include logging tasks
   include: logging.yml
   tags: logging
 
-- name: Include sysctl tasks
+- name: common - include sysctl tasks
   include: sysctl.yml
   with_items: "{{ sysctl_common }}"
   tags: sysctl
 
-- name: Include services tasks
+- name: common - include services tasks
   include: services.yml
   tags: services
 
-- name: Include facts tasks
+- name: common - include facts tasks
   include: facts.yml
   tags: facts
 
-- name: Include motd tasks
+- name: common - include motd tasks
   include: motd.yml
   tags: motd
 
-- name: Include cleanup tasks
+- name: common - include cleanup tasks
   include: cleanup.yml
   tags: cleanup
