@@ -1,10 +1,4 @@
 ---
-- name: Restart rsyslog service
-  service:
-    name: rsyslog
-    state: restarted
-  become: true
-
 - name: Forward syslog message to local fluentd daemon
   template:
     src: 70-fluentd.conf.j2
