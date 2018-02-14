@@ -11,9 +11,9 @@
   include: packages.yml
   tags: packages
 
-- name: Include common tasks
-  include: common.yml
-  tags: common
+- name: Include logging tasks
+  include: logging.yml
+  tags: logging
 
 - name: Include sysctl tasks
   include: sysctl.yml
@@ -31,3 +31,7 @@
 - name: Include motd tasks
   include: motd.yml
   tags: motd
+
+- name: Include cleanup tasks
+  include: cleanup.yml
+  tags: cleanup
