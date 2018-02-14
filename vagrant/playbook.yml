@@ -21,6 +21,8 @@
   vars:
     operator_user: ubuntu
     operator_group: ubuntu
+    cleanup_services_common:
+      - foobar
 
   roles:
     - role: ../../ansible-common

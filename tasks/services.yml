@@ -1,4 +1,8 @@
 ---
+- name: Collect facts about services
+  scan_services:
+  register: services_state
+
 - name: Cleanup services
   service:
     name: "{{ item }}"
@@ -7,3 +11,4 @@
   become: true
   ignore_errors: yes
   with_items: "{{ cleanup_services_common }}"
+  when: "'{{ item }}.service' in services_state"
