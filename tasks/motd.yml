@@ -11,13 +11,13 @@
     - 91-release-upgrade
 
 - name: Disable motd banner in ssh pam session
-  lineinfile:
-    dest: /etc/pam.d/sshd
+  replace:
+    path: /etc/pam.d/sshd
     regexp: "{{ item.regex }}"
-    line: "{{ item.line }}"
+    replace: "{{ item.replace }}"
   become: true
   with_items:
-    - regex: '^session    optional     pam_motd.so  motd=/run/motd.dynamic$'
-      line: '# session    optional     pam_motd.so  motd=/run/motd.dynamic'
-    - regex: '^session    optional     pam_motd.so noupdate$'
-      line: '# session    optional     pam_motd.so noupdate'
+    - regex: '^session.*optional.*pam_motd.so.*motd=/run/motd.dynamic$'
+      replace: '# session  optional  pam_motd.so  motd=/run/motd.dynamic'
+    - regex: '^session.*optional.*pam_motd.so.*noupdate$'
+      replace: '# session  optional  pam_motd.so  noupdate'
