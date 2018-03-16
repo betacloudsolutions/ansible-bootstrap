@@ -14,6 +14,9 @@ required_packages_common:
   - rsyslog
   - ssh
 
+required_services_common:
+  - cron
+
 cleanup_packages_common:
   - apport
   - apport-symptoms

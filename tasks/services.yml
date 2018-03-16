@@ -3,6 +3,16 @@
   scan_services:
   register: services_state
 
+- name: common - start/enable required services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  become: true
+  ignore_errors: yes
+  with_items: "{{ required_services_common }}"
+  when: "'{{ item }}' in services_state"
+
 - name: common - cleanup services
   service:
     name: "{{ item }}"
@@ -11,4 +21,4 @@
   become: true
   ignore_errors: yes
   with_items: "{{ cleanup_services_common }}"
-  when: "'{{ item }}.service' in services_state"
+  when: "'{{ item }}' in services_state"
