@@ -4,7 +4,7 @@
     name: "{{ item_in_block.name }}"
     value: "{{ item_in_block.value }}"
     sysctl_set: yes
-    sysctl_file: "/etc/sysctl.d/{{ item }}.conf"
+    sysctl_file: "/etc/sysctl.d/70-{{ item }}.conf"
   when: "item in group_names or item == 'all'"
   with_items: "{{ sysctl_common[item] }}"
   become: true
