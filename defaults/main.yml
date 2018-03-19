@@ -13,6 +13,7 @@ required_packages_common:
   - python-docker
   - rsyslog
   - ssh
+  - selinux-utils
 
 required_services_common:
   - cron
