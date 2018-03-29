@@ -24,6 +24,13 @@
   become: true
   with_items: "{{ required_packages_common }}"
 
+- name: common - install packages required by cockpit
+  package:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items: "{{ required_packages_cockpit }}"
+
 - name: common - remove useless packages from the cache
   apt:
     autoclean: yes
