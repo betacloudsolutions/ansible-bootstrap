@@ -15,6 +15,14 @@ required_packages_common:
   - ssh
   - selinux-utils
 
+required_packages_cockpit:
+  - cockpit-bridge
+  - cockpit-docker
+  - cockpit-networkmanager
+  - cockpit-packagekit
+  - cockpit-storaged
+  - cockpit-system
+
 required_services_common:
   - cron
 
