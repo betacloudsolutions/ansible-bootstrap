@@ -1,5 +1,5 @@
 ---
-- name: common - cleanup /etc/update-motd.d
+- name: Cleanup /etc/update-motd.d
   file:
     state: absent
     path: "{{ item }}"
@@ -10,7 +10,7 @@
     - 90-updates-available
     - 91-release-upgrade
 
-- name: common - disable motd banner in ssh pam session
+- name: Disable motd banner in ssh pam session
   replace:
     path: /etc/pam.d/sshd
     regexp: "{{ item.regex }}"

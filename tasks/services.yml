@@ -1,9 +1,9 @@
 ---
-- name: common - collect facts about services
+- name: Collect facts about services
   scan_services:
   register: services_state
 
-- name: common - start/enable required services
+- name: Start/enable required services
   service:
     name: "{{ item }}"
     state: started
@@ -13,7 +13,7 @@
   with_items: "{{ required_services_common }}"
   when: "'{{ item }}' in services_state"
 
-- name: common - cleanup services
+- name: Cleanup services
   service:
     name: "{{ item }}"
     state: stopped
