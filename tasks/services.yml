@@ -1,7 +1,6 @@
 ---
 - name: Collect facts about services
   scan_services:
-  register: services_state
 
 - name: Start/enable required services
   service:
@@ -11,7 +10,7 @@
   become: true
   ignore_errors: yes
   with_items: "{{ required_services_common }}"
-  when: "'{{ item }}' in services_state"
+  when: item + ".service" in services
 
 - name: Cleanup services
   service:
@@ -21,4 +20,4 @@
   become: true
   ignore_errors: yes
   with_items: "{{ cleanup_services_common }}"
-  when: "'{{ item }}' in services_state"
+  when: item + ".service" in services
