@@ -1,42 +1,42 @@
 ---
-- name: common - update package cache
+- name: Update package cache
   apt:
     update_cache: yes
     cache_valid_time: 3600
   become: true
 
-- name: common - upgrade packages
+- name: Upgrade packages
   apt:
     upgrade: dist
   become: true
 
-- name: common - cleanup installed packages
+- name: Cleanup installed packages
   package:
     name: "{{ item }}"
     state: absent
   become: true
   with_items: "{{ cleanup_packages_common }}"
 
-- name: common - install required packages
+- name: Install required packages
   package:
     name: "{{ item }}"
     state: present
   become: true
   with_items: "{{ required_packages_common }}"
 
-- name: common - install packages required by cockpit
+- name: Install packages required by cockpit
   package:
     name: "{{ item }}"
     state: present
   become: true
   with_items: "{{ required_packages_cockpit }}"
 
-- name: common - remove useless packages from the cache
+- name: Remove useless packages from the cache
   apt:
     autoclean: yes
   become: true
 
-- name: common - remove dependencies that are no longer required
+- name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
   become: true

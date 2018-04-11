@@ -1,5 +1,5 @@
 ---
-- name: "common - set sysctl parameters on {{ item }} nodes"
+- name: "Set sysctl parameters on {{ item }} nodes"
   sysctl:
     name: "{{ item_in_block.name }}"
     value: "{{ item_in_block.value }}"

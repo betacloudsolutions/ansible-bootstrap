@@ -1,10 +1,10 @@
 ---
-- name: common - sync hardware clock
+- name: Sync hardware clock
   command: hwclock --systohc
   become: true
   changed_when: false
 
-- name: common - disable timesyncd
+- name: Disable timesyncd
   command: timedatectl set-ntp false
   become: true
   changed_when: false

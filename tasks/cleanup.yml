@@ -1,5 +1,5 @@
 ---
-- name: common - remove snakeoil certificate
+- name: Remove snakeoil certificate
   file:
     path: "{{ item }}"
     state: absent
