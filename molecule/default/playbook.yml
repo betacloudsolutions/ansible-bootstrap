@@ -2,5 +2,8 @@
 - name: Playbook for role testing
   hosts: all
 
+  vars:
+    install_microcode_package_common: yes
+
   roles:
     - role: ansible-common
