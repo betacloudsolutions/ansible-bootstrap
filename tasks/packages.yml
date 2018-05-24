@@ -31,6 +31,24 @@
   become: true
   with_items: "{{ required_packages_cockpit }}"
 
+- name: Install intel-microcode package
+  package:
+    name: intel-microcode
+    state: present
+  become: true
+  when:
+    - install_microcode_package_common|bool
+    - "'amd' not in ansible_processor"
+
+- name: Install amd64-microcode package
+  package:
+    name: amd64-microcode
+    state: present
+  become: true
+  when:
+    - install_microcode_package_common|bool
+    - "'amd' in ansible_processor"
+
 - name: Remove useless packages from the cache
   apt:
     autoclean: yes

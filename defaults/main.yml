@@ -39,6 +39,8 @@ kernel_modules_common:
   - 8021q
   - configfs
 
+install_microcode_package_common: no
+
 sysctl_common:
   elasticsearch:
     # https://github.com/docker-library/elasticsearch/issues/98
