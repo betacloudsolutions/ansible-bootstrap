@@ -1,5 +1,10 @@
 ---
 ##########################
+# versions
+
+openstack_version: pike
+
+##########################
 # fluentd
 
 fluentd_port: 5140
@@ -10,10 +15,10 @@ fluentd_host: 127.0.0.1
 
 required_packages_common:
   - ethtool
-  - python-docker
+  - python-pip
   - rsyslog
-  - ssh
   - selinux-utils
+  - ssh
 
 required_packages_cockpit:
   - cockpit-bridge
