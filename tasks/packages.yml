@@ -59,7 +59,7 @@
 - name: Install docker package (openstack_version != ocata)
   pip:
     name: docker
-    state: latest
+    state: present
   become: true
   when: "openstack_version != 'ocata'"
 
