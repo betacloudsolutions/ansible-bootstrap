@@ -63,23 +63,16 @@
   become: true
   when: "openstack_version != 'ocata'"
 
-- name: Install intel-microcode package
+- name: Install microcode packages
   package:
-    name: intel-microcode
+    name: "{{ item }}"
     state: present
   become: true
+  with_items:
+    - amd64-microcode
+    - intel-microcode
   when:
     - install_microcode_package_common|bool
-    - "'amd' not in ansible_processor"
-
-- name: Install amd64-microcode package
-  package:
-    name: amd64-microcode
-    state: present
-  become: true
-  when:
-    - install_microcode_package_common|bool
-    - "'amd' in ansible_processor"
 
 - name: Remove useless packages from the cache
   apt:
