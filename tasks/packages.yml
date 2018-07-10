@@ -48,6 +48,7 @@
       Pin-Priority: -1
     dest: /etc/apt/preferences.d/python-docker
   become: true
+  when: "openstack_version != 'ocata'"
 
 - name: Install python-docker package (openstack_version == ocata)
   package:
