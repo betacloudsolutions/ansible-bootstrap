@@ -34,6 +34,10 @@ required_services_common:
 cleanup_packages_common:
   - apport
   - apport-symptoms
+  - libvirt-bin
+  - lxc
+  - lxd
+  - open-iscsi
   - python3-apport
   - ubuntu-server
 
