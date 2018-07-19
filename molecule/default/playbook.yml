@@ -4,6 +4,7 @@
 
   vars:
     install_microcode_package_common: yes
+    configure_cockpit: yes
 
   roles:
     - role: ansible-common

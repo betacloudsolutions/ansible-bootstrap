@@ -29,6 +29,7 @@
     name: "{{ item }}"
     state: present
   become: true
+  when: configure_cockpit|bool
   with_items: "{{ required_packages_cockpit }}"
 
 # FIXME(berendt): Add support for bionic release.

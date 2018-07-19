@@ -20,6 +20,7 @@ required_packages_common:
   - selinux-utils
   - ssh
 
+configure_cockpit: no
 required_packages_cockpit:
   - cockpit-bridge
   - cockpit-docker
