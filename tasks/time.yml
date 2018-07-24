@@ -3,6 +3,7 @@
   command: hwclock --systohc
   become: true
   changed_when: false
+  when: systohc_common|bool
 
 - name: Disable timesyncd
   command: timedatectl set-ntp false

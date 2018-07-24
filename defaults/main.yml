@@ -20,18 +20,6 @@ required_packages_common:
   - selinux-utils
   - ssh
 
-configure_cockpit: no
-required_packages_cockpit:
-  - cockpit-bridge
-  - cockpit-docker
-  - cockpit-networkmanager
-  - cockpit-packagekit
-  - cockpit-storaged
-  - cockpit-system
-
-required_services_common:
-  - cron
-
 cleanup_packages_common:
   - apport
   - apport-symptoms
@@ -42,14 +30,38 @@ cleanup_packages_common:
   - python3-apport
   - ubuntu-server
 
+install_microcode_package_common: no
+
+##########################
+# cockpit
+
+configure_cockpit: no
+required_packages_cockpit:
+  - cockpit-bridge
+  - cockpit-docker
+  - cockpit-networkmanager
+  - cockpit-packagekit
+  - cockpit-storaged
+  - cockpit-system
+
+##########################
+# services
+
+required_services_common:
+  - cron
+
 cleanup_services_common: []
+
+##########################
+# modules
 
 kernel_modules_common:
   - bonding
   - 8021q
   - configfs
 
-install_microcode_package_common: no
+##########################
+# sysctl
 
 sysctl_common:
   elasticsearch:
@@ -80,3 +92,8 @@ sysctl_common:
   all:
     - name: vm.swappiness
       value: 1
+
+##########################
+# other
+
+systohc_common: yes
