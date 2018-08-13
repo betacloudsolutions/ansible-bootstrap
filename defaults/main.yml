@@ -1,10 +1,5 @@
 ---
 ##########################
-# versions
-
-openstack_version: pike
-
-##########################
 # fluentd
 
 fluentd_port: 5140

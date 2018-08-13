@@ -32,39 +32,6 @@
   when: configure_cockpit|bool
   with_items: "{{ required_packages_cockpit }}"
 
-# FIXME(berendt): Add support for bionic release.
-
-- name: Remove python-docker package (openstack_version != ocata)
-  package:
-    name: python-docker
-    state: absent
-  become: true
-  when: "openstack_version != 'ocata'"
-
-- name: Block installation of python-docker package (openstack_version != ocata)
-  copy:
-    content: |
-      Package: python-docker
-      Pin: version *
-      Pin-Priority: -1
-    dest: /etc/apt/preferences.d/python-docker
-  become: true
-  when: "openstack_version != 'ocata'"
-
-- name: Install python-docker package (openstack_version == ocata)
-  package:
-    name: python-docker
-    state: present
-  become: true
-  when: "openstack_version == 'ocata'"
-
-- name: Install docker package (openstack_version != ocata)
-  pip:
-    name: docker
-    state: present
-  become: true
-  when: "openstack_version != 'ocata'"
-
 - name: Install microcode packages
   package:
     name: "{{ item }}"
