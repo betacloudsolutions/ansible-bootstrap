@@ -34,7 +34,6 @@ configure_cockpit: no
 required_packages_cockpit:
   - cockpit-bridge
   - cockpit-docker
-  - cockpit-networkmanager
   - cockpit-packagekit
   - cockpit-storaged
   - cockpit-system
