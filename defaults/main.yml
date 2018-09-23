@@ -11,6 +11,7 @@ fluentd_host: 127.0.0.1
 required_packages_common:
   - ethtool
   - python-pip
+  - python-websocket
   - rsyslog
   - selinux-utils
   - ssh
