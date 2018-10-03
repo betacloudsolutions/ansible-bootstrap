@@ -24,14 +24,6 @@
   become: true
   with_items: "{{ required_packages_common }}"
 
-- name: Install packages required by cockpit
-  package:
-    name: "{{ item }}"
-    state: present
-  become: true
-  when: configure_cockpit|bool
-  with_items: "{{ required_packages_cockpit }}"
-
 - name: Install microcode packages
   package:
     name: "{{ item }}"
