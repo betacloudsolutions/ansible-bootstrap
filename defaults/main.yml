@@ -29,17 +29,6 @@ cleanup_packages_common:
 install_microcode_package_common: no
 
 ##########################
-# cockpit
-
-configure_cockpit: no
-required_packages_cockpit:
-  - cockpit-bridge
-  - cockpit-docker
-  - cockpit-packagekit
-  - cockpit-storaged
-  - cockpit-system
-
-##########################
 # services
 
 required_services_common:
