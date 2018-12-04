@@ -4,6 +4,7 @@
 
   vars:
     install_microcode_package_common: yes
+    kernel_modules_common: []
 
   roles:
     - role: ansible-common
