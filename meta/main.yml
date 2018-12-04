@@ -4,15 +4,12 @@ galaxy_info:
   description: Role osism.common
   company: Betacloud Solutions GmbH
   license: Apache License 2.0
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
     - name: Ubuntu
       versions:
         - bionic
         - xenial
-    - name: EL
-      versions:
-        - 7
   galaxy_tags:
     - system
 dependencies: []
