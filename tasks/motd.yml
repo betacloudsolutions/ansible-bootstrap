@@ -5,9 +5,11 @@
     path: "/etc/update-motd.d/{{ item }}"
   become: true
   with_items:
+    - 10-help-text
     - 50-landscape-sysinfo
     - 50-motd-news
     - 80-livepatch
+    - 97-overlayroot
 
 - name: Disable motd banner in ssh pam session
   replace:
