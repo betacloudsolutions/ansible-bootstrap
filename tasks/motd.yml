@@ -2,13 +2,12 @@
 - name: Cleanup /etc/update-motd.d
   file:
     state: absent
-    path: "{{ item }}"
+    path: "/etc/update-motd.d/{{ item }}"
   become: true
   with_items:
-    - 00-header
-    - 10-help-text
-    - 90-updates-available
-    - 91-release-upgrade
+    - 50-landscape-sysinfo
+    - 50-motd-news
+    - 80-livepatch
 
 - name: Disable motd banner in ssh pam session
   replace:
