@@ -4,3 +4,9 @@
     name: rsyslog
     state: restarted
   become: true
+
+- name: Restart hddtemp service
+  service:
+    name: hddtemp
+    state: restarted
+  become: true

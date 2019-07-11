@@ -32,6 +32,11 @@
   include: motd.yml
   tags: motd
 
+- name: Include hddtemp tasks
+  include: hddtemp.yml
+  tags: hddtemp
+  when: hddtemp_enable_common|bool
+
 - name: Include cleanup tasks
   include: cleanup.yml
   tags: cleanup

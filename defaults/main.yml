@@ -83,3 +83,4 @@ sysctl_common:
 # other
 
 systohc_common: yes
+hddtemp_enable_common: yes
