@@ -37,6 +37,11 @@
   tags: hddtemp
   when: hddtemp_enable_common|bool
 
+- name: Include smartd tasks
+  include: smartd.yml
+  tags: smartd
+  when: smartd_enable_common|bool
+
 - name: Include cleanup tasks
   include: cleanup.yml
   tags: cleanup

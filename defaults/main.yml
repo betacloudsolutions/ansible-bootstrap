@@ -84,3 +84,4 @@ sysctl_common:
 
 systohc_common: yes
 hddtemp_enable_common: yes
+smartd_enable_common: yes

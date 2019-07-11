@@ -10,3 +10,9 @@
     name: hddtemp
     state: restarted
   become: true
+
+- name: Restart smartd service
+  service:
+    name: smartd
+    state: restarted
+  become: true
