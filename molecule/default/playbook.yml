@@ -5,6 +5,7 @@
   vars:
     install_microcode_package_common: yes
     kernel_modules_common: []
+    smartd_enable_common: no
 
   roles:
     - role: ansible-common
