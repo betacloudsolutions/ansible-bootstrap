@@ -5,6 +5,7 @@
   vars:
     install_microcode_package_common: yes
     kernel_modules_common: []
+    rng_enable_common: yes
     smartd_enable_common: no
 
   roles:
