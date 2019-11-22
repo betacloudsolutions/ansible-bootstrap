@@ -1,0 +1,10 @@
+---
+- name: Collect facts about services
+  scan_services:
+
+- name: Check services
+  debug:
+    msg: "The {{ item }} service is running. It should be deactivated and not run."
+  become: true
+  with_items: "{{ warning_services_common }}"
+  when: item + ".service" in services

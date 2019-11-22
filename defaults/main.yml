@@ -38,6 +38,9 @@ required_services_common:
 
 cleanup_services_common: []
 
+warning_services_common:
+  - nscd
+
 ##########################
 # modules
 
