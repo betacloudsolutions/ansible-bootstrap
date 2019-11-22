@@ -80,6 +80,13 @@ sysctl_common:
       value: 1
 
 ##########################
+# random number generator
+
+rng_enable_common: no
+rng_service_name: haveged
+rng_package_name: haveged
+
+##########################
 # other
 
 systohc_common: yes

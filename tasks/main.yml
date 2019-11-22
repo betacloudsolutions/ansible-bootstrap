@@ -37,6 +37,11 @@
   tags: hddtemp
   when: hddtemp_enable_common|bool
 
+- name: Include rng tasks
+  include: rng.yml
+  tags: rng
+  when: rng_enable_common|bool
+
 - name: Include smartd tasks
   include: smartd.yml
   tags: smartd
