@@ -50,3 +50,7 @@
 - name: Include cleanup tasks
   include: cleanup.yml
   tags: cleanup
+
+- name: Run checks
+  include: checks.yml
+  tags: checks
