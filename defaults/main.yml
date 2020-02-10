@@ -23,7 +23,6 @@ cleanup_packages_common:
   - lxc
   - lxd
   - open-iscsi
-  - popularity-contest
   - python3-apport
   - snapd
   - ubuntu-server

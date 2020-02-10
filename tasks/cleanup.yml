@@ -7,3 +7,20 @@
     - /etc/ssl/private/ssl-cert-snakeoil.key
     - /etc/ssl/certs/ssl-cert-snakeoil.pem
   become: true
+
+- name: Remove popularity-contest
+  package:
+    name: popularity-contest
+    state: absent
+  become: true
+
+# NOTE: Although the package popularity-contest will be uninstalled,
+#       some of these files are still available on systems.
+- name: Remove popularity-contest cronjobs
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/cron.d/popularity-contest
+    - /etc/cron.daily/popularity-contest
+  become: true
