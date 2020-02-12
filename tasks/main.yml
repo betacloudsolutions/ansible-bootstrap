@@ -3,6 +3,10 @@
   include: time.yml
   tags: time
 
+- name: Include configfs tasks
+  include: configfs.yml
+  tags: configfs
+
 - name: Include kernel modules tasks
   include: kernel-modules.yml
   tags: kernel_modules
