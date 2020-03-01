@@ -91,6 +91,7 @@ rng_package_name: haveged
 ##########################
 # other
 
-systohc_common: yes
 hddtemp_enable_common: yes
 smartd_enable_common: yes
+systohc_common: yes
+upgrade_packages_common: yes

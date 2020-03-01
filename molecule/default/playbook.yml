@@ -7,6 +7,7 @@
     kernel_modules_common: []
     rng_enable_common: yes
     smartd_enable_common: no
+    upgrade_packages_common: no
 
   roles:
     - role: ansible-common
