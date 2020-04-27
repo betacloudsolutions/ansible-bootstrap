@@ -8,6 +8,8 @@ fluentd_host: 127.0.0.1
 ##########################
 # packages
 
+apt_cache_valid_time_common: 3600
+
 required_packages_common:
   - ethtool
   - python-pip

@@ -2,7 +2,7 @@
 - name: Update package cache
   apt:
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: "{{ apt_cache_valid_time_common }}"
   become: true
 
 - name: Upgrade packages
