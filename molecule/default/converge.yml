@@ -3,7 +3,7 @@
   hosts: all
 
   vars:
-    apt_cache_valid_time_common: 0
+    apt_cache_valid_time_common: 3600
     install_microcode_package_common: yes
     kernel_modules_common: []
     rng_enable_common: yes
