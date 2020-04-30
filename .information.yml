@@ -1,3 +1,6 @@
 ---
 ansible_role_name: common
+distributions:
+  - bionic
+  - focal
 travis_decrypt_key: 44a3b04b5e21
