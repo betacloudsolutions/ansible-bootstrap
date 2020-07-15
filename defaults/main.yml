@@ -28,6 +28,9 @@ cleanup_packages_common:
   - ubuntu-server
 
 install_microcode_package_common: no
+microcode_packages_common:
+  - amd64-microcode
+  - intel-microcode
 
 ##########################
 # services

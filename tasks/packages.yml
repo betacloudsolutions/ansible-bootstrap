@@ -13,27 +13,22 @@
 
 - name: Cleanup installed packages
   apt:
-    name: "{{ item }}"
+    name: "{{ cleanup_packages_common }}"
     state: absent
     purge: yes
   become: true
-  with_items: "{{ cleanup_packages_common }}"
 
 - name: Install required packages
   apt:
-    name: "{{ item }}"
+    name: "{{ required_packages_common }}"
     state: present
   become: true
-  with_items: "{{ required_packages_common }}"
 
 - name: Install microcode packages
   apt:
-    name: "{{ item }}"
+    name: "{{ microcode_packages_common }}"
     state: present
   become: true
-  with_items:
-    - amd64-microcode
-    - intel-microcode
   when:
     - install_microcode_package_common|bool
 
