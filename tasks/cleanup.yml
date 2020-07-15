@@ -9,9 +9,10 @@
   become: true
 
 - name: Remove popularity-contest
-  package:
+  apt:
     name: popularity-contest
     state: absent
+    purge: yes
   become: true
 
 # NOTE: Although the package popularity-contest will be uninstalled,

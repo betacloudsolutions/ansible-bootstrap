@@ -1,6 +1,6 @@
 ---
 - name: Install smartmontools package
-  package:
+  apt:
     name: smartmontools
     state: present
   become: true

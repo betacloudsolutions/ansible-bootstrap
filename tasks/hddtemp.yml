@@ -1,6 +1,6 @@
 ---
 - name: Install hddtemp package
-  package:
+  apt:
     name: hddtemp
     state: present
   become: true

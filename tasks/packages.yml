@@ -12,21 +12,22 @@
   when: upgrade_packages_common|bool
 
 - name: Cleanup installed packages
-  package:
+  apt:
     name: "{{ item }}"
     state: absent
+    purge: yes
   become: true
   with_items: "{{ cleanup_packages_common }}"
 
 - name: Install required packages
-  package:
+  apt:
     name: "{{ item }}"
     state: present
   become: true
   with_items: "{{ required_packages_common }}"
 
 - name: Install microcode packages
-  package:
+  apt:
     name: "{{ item }}"
     state: present
   become: true

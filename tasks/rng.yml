@@ -1,6 +1,6 @@
 ---
 - name: Install rng package
-  package:
+  apt:
     name: "{{ rng_package_name }}"
     state: present
   become: true
