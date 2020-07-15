@@ -36,6 +36,20 @@
   when:
     - install_microcode_package_common|bool
 
+- name: Disable unattended-upgrades service
+  service:
+    name: unattended-upgrades.service
+    state: stopped
+    enabled: no
+  become: true
+
+- name: Uninstall unattended-upgrades package
+  apt:
+    name: unattended-upgrades
+    state: absent
+    purge: yes
+  become: true
+
 - name: Remove useless packages from the cache
   apt:
     autoclean: yes
