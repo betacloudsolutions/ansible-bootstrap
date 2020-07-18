@@ -1,11 +1,5 @@
 ---
 ##########################
-# fluentd
-
-fluentd_port: 5140
-fluentd_host: 127.0.0.1
-
-##########################
 # packages
 
 apt_cache_valid_time_common: 3600

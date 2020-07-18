@@ -1,10 +1,4 @@
 ---
-- name: Restart rsyslog service
-  service:
-    name: rsyslog
-    state: restarted
-  become: true
-
 - name: Restart hddtemp service
   service:
     name: hddtemp

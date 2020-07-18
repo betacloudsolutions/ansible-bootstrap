@@ -11,10 +11,6 @@
   include: packages.yml
   tags: packages
 
-- name: Include logging tasks
-  include: logging.yml
-  tags: logging
-
 - name: Include sysctl tasks
   include: sysctl.yml
   with_items: "{{ sysctl_common }}"
