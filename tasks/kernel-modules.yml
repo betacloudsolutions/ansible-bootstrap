@@ -5,11 +5,11 @@
     state: present
     dest: /etc/modules
   become: true
-  with_items: "{{ kernel_modules_common }}"
+  loop: "{{ kernel_modules_common }}"
 
 - name: Load kernel module
   modprobe:
     name: "{{ item }}"
     state: present
   become: true
-  with_items: "{{ kernel_modules_common }}"
+  loop: "{{ kernel_modules_common }}"

@@ -11,7 +11,7 @@
     state: absent
     path: "/etc/update-motd.d/{{ item }}"
   become: true
-  with_items:
+  loop:
     - 10-help-text
     - 50-landscape-sysinfo
     - 50-motd-news
@@ -24,7 +24,7 @@
     regexp: "{{ item.regex }}"
     replace: "{{ item.replace }}"
   become: true
-  with_items:
+  loop:
     - regex: '^session.*optional.*pam_motd.so.*motd=/run/motd.dynamic$'
       replace: '# session  optional  pam_motd.so  motd=/run/motd.dynamic'
     - regex: '^session.*optional.*pam_motd.so.*noupdate$'
