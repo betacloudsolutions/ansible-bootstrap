@@ -1,4 +1,11 @@
 ---
+- name: Stop motd-news timer
+  service:
+    name: motd-news.timer
+    state: stopped
+    enabled: false
+  become: true
+
 - name: Cleanup /etc/update-motd.d
   file:
     state: absent
