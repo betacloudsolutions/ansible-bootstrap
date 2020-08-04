@@ -9,7 +9,7 @@
     enabled: yes
   become: true
   ignore_errors: yes
-  with_items: "{{ required_services_common }}"
+  loop: "{{ required_services_common }}"
   when: item + ".service" in services
 
 - name: Cleanup services
@@ -19,5 +19,5 @@
     enabled: no
   become: true
   ignore_errors: yes
-  with_items: "{{ cleanup_services_common }}"
+  loop: "{{ cleanup_services_common }}"
   when: item + ".service" in services
