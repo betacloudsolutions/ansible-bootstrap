@@ -5,6 +5,7 @@
 apt_cache_valid_time_common: 3600
 
 required_packages_common:
+  - debsums
   - ethtool
   - rsyslog
   - selinux-utils
